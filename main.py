@@ -1,7 +1,7 @@
 from datetime import date
 
 import mysql.connector
-
+import password_base
 
 class Uzytkownik:
     nazwa = ""
@@ -75,17 +75,17 @@ class Zadanie:
 
 
 mydb = mysql.connector.connect(
-    host="sql7.freemysqlhosting.net",
-    user="sql7602526",
-    password="18JhFT4Bxk"
+    host=password_base.host,
+    user=password_base.user,
+    password=password_base.password
 )
 
 
 def establishConnection():
     my_database = mysql.connector.connect(
-        host="sql7.freemysqlhosting.net",
-        user="sql7602526",
-        password="18JhFT4Bxk"
+        host=password_base.host,
+        user=password_base.user,
+        password=password_base.password
     )
     return my_database
 
