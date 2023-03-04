@@ -5,13 +5,15 @@ import mysql.connector
 import password_base
 import classes
 
+
 def databaseConnector():
     my_database = mysql.connector.connect(
-        host=password_base.host,
+        host="sql7.freemysqlhosting.net",
         user=password_base.user,
         password=password_base.password
     )
     return my_database
+
 
 def establishConnection():
     database_cursor = databaseConnector().cursor()
