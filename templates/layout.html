@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Organizer</h1>
+      </div>
+    </header>
+    <div class="container">
+
+     <form action="{{url_for('add_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
+    <label for="przedmiot">Przedmiot:</label><br/>
+    <input type="text" id="przedmiot" name="przedmiot" placeholder="{{request.url.split('/')[-1] }}"><br/>
+    <label for="zadanie">Zadanie:</label><br/>
+    <input type="text" id="zadanie" name="zadanie" placeholder="zadanie"><br/>
+    <label for="data">Data:</label><br/>
+    <input type="text" id="data" name="data" placeholder="data"><br/>
+    <button type="submit">Dodaj zadanie!</button>
+     </form>
+      {{zadania|safe}}
+    </div>
+  </body>
+</html>
