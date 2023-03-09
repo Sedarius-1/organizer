@@ -11,12 +11,14 @@ class Uzytkownik:
 
 
 class Zadanie:
+    id = 0
     przedmiot = ""
     nazwa_zadania = ""
     oddanie_data = ""
     ile_dni = 0
 
-    def __init__(self, przedmiot, nazwa_zadania, oddanie_data, skonczone, przeslane):
+    def __init__(self, id, przedmiot, nazwa_zadania, oddanie_data, skonczone, przeslane):
+        self.id = id
         self.przedmiot = przedmiot
         self.nazwa_zadania = nazwa_zadania
         self.oddanie_data = oddanie_data
@@ -37,29 +39,33 @@ class Zadanie:
         else:
             if self.przeslane == 1:
                 return f"<div class='tile-sent'><p>" \
-                       f"Przedmiot: {self.przedmiot} <br>" \
-                       f"Zadanie: {self.nazwa_zadania} <br>" \
-                       f"Zakończono!<br>" \
+                       f"Task ID: {self.id}<br>" \
+                       f"Subject: {self.przedmiot} <br>" \
+                       f"Task: {self.nazwa_zadania} <br>" \
+                       f"Finished!<br>" \
                        f"</p></div>"
             elif self.skonczone == 1:
                 return f"<div class='tile-finished'><p>" \
-                       f"Przedmiot: {self.przedmiot} <br>" \
-                       f"Zadanie: {self.nazwa_zadania} <br>" \
-                       f"Data oddania: {self.oddanie_data} <br>" \
-                       f"Do oddania zostało: {self.ile_dni} dni.<br>" \
-                       f"PAMIĘTAJ O WYSŁANIU<br>" \
+                       f"Task ID: {self.id}<br>" \
+                       f"Subject: {self.przedmiot} <br>" \
+                       f"Task: {self.nazwa_zadania} <br>" \
+                       f"Due date: {self.oddanie_data} <br>" \
+                       f"Days until submission: {self.ile_dni} <br>" \
+                       f"REMEMBER ABOUT SUBMISSING IT<br>" \
                        f"</p></div>"
-            elif self.getDayDiff().days > 14:
+            elif self.getDayDiff().days >= 7:
                 return f"<div class='tile-unfinished'><p>" \
-                       f"Przedmiot: {self.przedmiot} <br>" \
-                       f"Zadanie: {self.nazwa_zadania} <br>" \
-                       f"Data oddania: {self.oddanie_data} <br>" \
-                       f"Do oddania zostało: {self.ile_dni} dni.<br>" \
+                       f"Task ID: {self.id}<br>" \
+                       f"Subject: {self.przedmiot} <br>" \
+                       f"Task: {self.nazwa_zadania} <br>" \
+                       f"Due date: {self.oddanie_data} <br>" \
+                       f"Days until submission: {self.ile_dni} <br>" \
                        f"</p></div>"
             else:
                 return f"<div class='tile-urgent'><p>" \
-                       f"Przedmiot:{self.przedmiot} <br>" \
-                       f"Zadanie: {self.nazwa_zadania} <br>" \
-                       f"Data oddania: {self.oddanie_data} <br>" \
-                       f"Do oddania zostało: {self.ile_dni} dni.<br>" \
+                       f"Task ID: {self.id}<br>" \
+                       f"Subject: {self.przedmiot} <br>" \
+                       f"Task: {self.nazwa_zadania} <br>" \
+                       f"Due date: {self.oddanie_data} <br>" \
+                       f"Days until submission: {self.ile_dni} <br>" \
                        f"</p></div>"

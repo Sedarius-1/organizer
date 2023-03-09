@@ -7,21 +7,52 @@
   <body>
     <header>
       <div class="container">
-        <h1 class="logo">Organizer</h1>
+        <h1 class="logo">Task Organizer</h1>
       </div>
     </header>
-    <div class="container">
-
-     <form action="{{url_for('add_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
-    <label for="przedmiot">Przedmiot:</label><br/>
-    <input type="text" id="przedmiot" name="przedmiot" placeholder="{{request.url.split('/')[-1] }}"><br/>
-    <label for="zadanie">Zadanie:</label><br/>
-    <input type="text" id="zadanie" name="zadanie" placeholder="zadanie"><br/>
-    <label for="data">Data:</label><br/>
-    <input type="text" id="data" name="data" placeholder="data"><br/>
-    <button type="submit">Dodaj zadanie!</button>
-     </form>
-      {{zadania|safe}}
+    <div class="content">
+        <div class="menu">
+        <form class = "menu-action-form" action="{{url_for('add_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
+          <h3 class="menu-action-title">
+            Add new task
+          </h3>
+          <label for="przedmiot">Subject:</label><br/>
+          <input type="text" id="przedmiot" name="przedmiot" placeholder="Subject"><br/>
+          <label for="zadanie">Task:</label><br/>
+          <input type="text" id="zadanie" name="zadanie" placeholder="Task"><br/>
+          <label for="data">Due date:</label><br/>
+          <input type="text" id="data" name="data" placeholder="Due date"><br/>
+          <button class="menu-submit-button" type="submit">Add task!</button>
+        </form>
+        <form class = "menu-action-form" action="{{url_for('remove_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
+          <h3 class="menu-action-title">
+            Remove task
+          </h3>
+          <label for="data">Task id</label><br/>
+          <input type="text" id="id_zadania" name="id_zadania" placeholder="id"><br/>
+          <button class="menu-submit-button" type="submit">Remove task!</button>
+        </form>
+        <form class = "menu-action-form" action="{{url_for('finish_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
+          <h3 class="menu-action-title">
+            Mark task as finished
+          </h3>
+          <label for="data">Id of a task to mark as finished:</label><br/>
+          <input type="text" id="id_zadania_koniec" name="id_zadania_koniec" placeholder="id"><br/>
+          <button class="menu-submit-button" type="submit">Finish task!</button>
+        </form>
+        <form class = "menu-action-form" action="{{url_for('send_task',uzytkownik=request.url.split('/')[-1])}}" method="POST">
+          <h3 class="menu-action-title">
+            Mark task as sent
+          </h3>
+          <label for="data">Id of a task to mark as sent</label><br/>
+          <input type="text" id="id_zadania_wyslanie" name="id_zadania_wyslanie" placeholder="id"><br/>
+          <button class="menu-submit-button" type="submit">Send task!</button>
+        </form>
+      </div>
+      <div class="tasks">
+        {{zadania|safe}}
+      </div>
     </div>
+
   </body>
 </html>

@@ -1,39 +1,109 @@
-.container
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+body{
+    background: linear-gradient(90deg, black 5%, darkblue 80%);
+}
+
+body >*{
+    font-family: 'Orbitron', courier, serif;
+}
+.logo{
+    color:white;
+    text-align: center;
+}
+.content
 {
-display:flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content:center;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+.menu, .register-container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:20vw;
+}
+
+.register-container{
+    text-align: right;
+}
+
+.register-input, .register-submit-button, .menu-submit-button{
+    margin:1vh;
+    padding: 1vh;
+    font-family: 'Orbitron', courier, serif;
+    color:black;
+}
+.menu-action-form{
+    border:0.02vh solid skyblue;
+}
+
+.menu-action-form, .register-menu{
+    margin:1vh;
+    font-family: 'Orbitron', courier, serif;
+    color:antiquewhite;
+}
+
+.menu-action-form > *{
+    margin:1vh;
+    font-family: 'Orbitron', courier, serif;
+}
+
+.menu-submit-button, .register-submit-button{
+    border: 0;
+    background: linear-gradient(45deg, darkblue 5%, blueviolet 45%);
+    shape-rendering: geometricPrecision;
+    margin:1vh;
+    border-radius: 1vw;
+    color: white;
+}
+
+input{
+    border-radius: 1vw;
+}
+label{
+    font-size: 1.5vh;
+}
+
+.tasks
+{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    width:80vw;
 }
 
 .tile-urgent, .tile-unfinished, .tile-finished, .tile-sent
 {
-margin:2vw 2vh 2vw 2vh;
-display:flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content:center;
-flex-basis:20%;
-color:black;
-border:1px solid black;
-background-color:yellow;
-}
-
-p{
-text-align:center
+    margin:2vw 2vh 2vw 2vh;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    flex-basis:20%;
+    color:black;
+    border:2px solid black;
+    background: linear-gradient(45deg,#FAE137 20%, #FAF8C3 70%);
+    border-radius: 5vh;
+    padding:1vh;
 }
 
 .tile-urgent{
-color:white;
-background-color:red;
+    color:white;
+    background: linear-gradient(45deg,#E02B11 20%, #E69083 70%);
 }
 
 .tile-finished{
-color:white;
-background-color:blue;
+    color:white;
+    background: linear-gradient(45deg,#1265E0 20%, #6D9EE6 70%, antiquewhite 95%);
 }
 
 .tile-sent{
-color:white;
-background-color:green;
+    color:white;
+    background: linear-gradient(45deg,#12E046 20%, #7CE696 70%, antiquewhite 95%);
+}
+
+p{
+    text-align:center
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 class="logo">Register</h1>
+</div>
+<div class="register-container">
+    <form class="register-menu" action="{{ url_for('register')}}" method="post">
+        <label for="rejestracja_uzytkownik">Username:</label>
+        <input class="register-input" type="text" id="rejestracja_uzytkownik" name="rejestracja_uzytkownik" placeholder="Username">
+        <label for="rejestracja_haslo">Password:</label>
+        <input class="register-input"  type="text" id="rejestracja_haslo" name="rejestracja_haslo" placeholder="Password">
+        <button class="register-submit-button" type="submit">Register</button>
+    </form>
+    <form class="register-menu" action="{{ url_for('login')}}" method="get">
+        <button class="menu-submit-button" type="submit"> Go to login page</button>
+    </form>
+</div>
+</body>
+</html>
